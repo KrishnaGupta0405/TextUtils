@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // https://legacy.reactjs.org/docs/typechecking-with-proptypes.html
 function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-light">
       <a className="navbar-brand" href="/">
         {props.title}
         {/* taking input ad props.title */}

@@ -5,7 +5,7 @@ import React,{useState} from "react";
 
 export default function TextForm(props) {
     const handleUpClick=()=>{
-        console.log("Uppercase was clicked " + text)
+        // console.log("Uppercase was clicked " + text)
         let newText= text.toUpperCase()
         setText(newText)
     }
@@ -13,13 +13,23 @@ export default function TextForm(props) {
         let newText=text.toLowerCase()
         setText(newText)
     }
+    
+    const handleClearClick=()=>{
+        let newText=" "
+        setText(newText)
+    }
+    
     const handleOnChange=(event)=>{
         // onChange event gives a event object
         // console.log("On Change")
         setText(event.target.value);
-        // this event.target.value will alow to update the value
+        // this event.target.value will alow to update the value of textarea
+        // basically even after updating the value from UPPERCASE, LOWERCASE,.. we can add text in in the input field, 
+        //as if we update through UPPERCASE we will not be able to update the value in the text area without this handleOneChnage event...
+        // Majboori ka naam, Mahatma gandi, jb jb input field hoda tb tb is function ko use karna padega.
     }
-    // is says whatever is enter will be strred in text vaiable and when update is done, it will be done through setText function
+    
+    // is says whatever is enter will be stroed in text vaiable and when update is done, it will be done through setText function
     const [text,setText] = useState('');
     // inside use state we are not passing anything it means we are no string
      // Declare a new state variable, which we'll call "text"
@@ -35,6 +45,7 @@ export default function TextForm(props) {
       </div>
       <button className="btn btn-primary my-2 mx-2" onClick={handleUpClick}>Convert to Uppercase</button>
       <button className="btn btn-primary my-2 mx-2" onClick={handleLowClick}>Convert to Lowercase</button>
+      <button className="btn btn-primary my-2 mx-2" onClick={handleClearClick}>Clear the text</button>
       {/* button.btn.btn-primary */}
     </div>
     <div className="container my-4">
